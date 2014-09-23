@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wear Pomodoro</string>
+    <string name="action_stop">Stop</string>
+    <string name="transition_text_before_short_break_message_template">Pomodoro #%d\nhas just finished!\nTake a few steps\nto start Short Break!</string>
+    <string name="transition_text_before_long_break_message_template">Pomodoro #%d\nhas just finished!\nTake a few steps\nto start Long Break!</string>
+    <string name="transition_text_before_pomodoro_message_template">Focus on a task!\nPomodoro #%d\nis starting!</string>
+
+</resources>

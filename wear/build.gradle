@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+apply plugin: 'hugo'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.alexkorovyansky.wearpomodoro"
+        minSdkVersion 20
+        targetSdkVersion 20
+        versionCode calculateVersionCode()
+        versionName calculateVersionName()
+        buildConfigField 'String', 'GIT_SHA', '"' + "${gitSha()}" + '"'
+        buildConfigField 'String', 'BUILD_TIME', '"' + "${buildTime()}'" + '"'
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../distribution/debug.keystore')
+        }
+
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+}
+
+dependencies {
+    compile 'com.google.android.support:wearable:1.0.0'
+    compile 'com.google.android.gms:play-services-wearable:5.0.77'
+    compile 'com.jakewharton:butterknife:5.1.2'
+    compile 'com.felipecsl:gifimageview:1.0.+'
+}

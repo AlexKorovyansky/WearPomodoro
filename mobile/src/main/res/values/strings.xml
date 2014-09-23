@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WearPomodoro</string>
+    <string name="main_title">Wear Pomodoro</string>
+    <string name="main_remark"><![CDATA[
+    <a href="http://youtu.be/cH-z5kmVhzU">Learn Pomodoro</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://trello.com/b/xysyx4qr/wear-pomodoro-app">Vote for Features</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/AlexKorovyansky/WearPomodoro">Send Pull Request</a>
+    ]]></string>
+</resources>

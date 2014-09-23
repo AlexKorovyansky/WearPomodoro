@@ -1,0 +1,47 @@
+import java.text.SimpleDateFormat
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.13.0'
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.1.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://github.com/felipecsl/m2repository/raw/master/' }
+    }
+
+    ext.calculateVersionCode = {
+        def versionMajor = Integer.parseInt(project.VERSION_MAJOR)
+        def versionMinor = Integer.parseInt(project.VERSION_MINOR)
+        def versionPatch = Integer.parseInt(project.VERSION_PATCH)
+        def versionBuild = Integer.parseInt(project.VERSION_BUILD)
+        return versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
+    }
+
+    ext.calculateVersionName = {
+        def versionMajor = Integer.parseInt(project.VERSION_MAJOR)
+        def versionMinor = Integer.parseInt(project.VERSION_MINOR)
+        def versionPatch = Integer.parseInt(project.VERSION_PATCH)
+        return versionMajor + "." + versionMinor + "." + versionPatch
+    }
+
+    ext.gitSha = {
+        return "git --git-dir=${rootDir}/.git --work-tree=${rootDir} rev-parse --short HEAD".execute().text.trim()
+    }
+
+    ext.buildTime = {
+        def df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'")
+        df.setTimeZone(TimeZone.getTimeZone("UTC"))
+        return df.format(new Date())
+    }
+}
